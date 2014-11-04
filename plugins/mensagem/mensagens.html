@@ -1,0 +1,17 @@
+
+<div class="content-index">	
+	<% if (retorno.length > 0) { %>
+	<ul class="nav nav-v">
+		<% _.each(retorno, function(retorno) { %>
+		<li class="nav-item media">
+			<a href="#mensagem/<%= retorno.id %>/<%= retorno.subject %>/<%= retorno.smallmessage %>">
+					<h3><%= retorno.subject %></h3>
+					<span class="font6"><i><%= retorno.nomefrom %> - <%= new Date(retorno.timecreated * 1000).toLocaleString() %></i></span>
+			</a>
+		</li>
+		<% }); %>
+	</ul>
+	<% } else { %>
+		<%= MM.lang.s("semmensagens", "mensagem") %>
+	<% } %>
+</div>

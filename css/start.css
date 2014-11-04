@@ -1,0 +1,90 @@
+.form-details {
+  margin: 0 auto;
+  width: 90%;
+}
+.form-details {
+  padding-top: 3rem;
+}
+.form-details h1 img{
+  width: 133px;
+  height: auto;
+  margin-bottom: 40px;
+}
+.form-details form {
+  *zoom: 1;
+  margin-bottom: 0;
+}
+.form-details form:before,
+.form-details  form:after {
+  content: "";
+  display: table;
+}
+.form-details  form:after {
+  clear: both;
+}
+.form-details  input {
+  width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+  line-height: 24px;
+  text-overflow: ellipsis;
+}
+.form-details  input[type="submit"] {
+  position: relative;
+  display: inline-block;
+  padding: 4px 12px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #F5F5F5;
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
+  border-radius: 4px;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+.form-details  input[type="submit"]:hover,
+.form-details  input[type="submit"]:focus {
+  background-image: none;
+}
+.form-details  input[type="button"] {
+  position: relative;
+  display: inline-block;
+  padding: 4px 12px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #F5F5F5;
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #b3b3b3;
+  border-radius: 4px;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+  margin-top: 15px;
+  /*display: none;*/
+}
+.form-details  input[type="button"]:hover,
+.form-details  input[type="button"]:focus {
+  background-image: none;
+}
+.form-details {
+  padding-top: 40px;
+}
+.font6{
+	color: #666666;
+	font-family: Helvetica, sans-serif;
+	font-size: 14px;
+	font-size: .675rem;
+	line-height: 24px;
+}
+
+#add-site #login-details {
+  padding-top: 20px !important;
+}
