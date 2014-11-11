@@ -8,7 +8,7 @@
 "plugins" : ["notifications", "upload", "events", "myfiles", "contents", "participants", "addcontact", "addnote", "sendmessage", "aluno","mensagem", "grades", "forums"],
 "wsservice" : "moodle_mobile_app",
 "wsextservice" : "local_start",
-"presets" : {"url": "http://localhost/moodle/", "username": ""},
+"presets" : {"url": "http://192.168.0.4/moodle/", "username": ""},
 "sync_ws_on" : true,
 "sync_lang_on" : true,
 "sync_css_on" : true,

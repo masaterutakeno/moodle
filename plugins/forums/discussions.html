@@ -16,6 +16,7 @@
 		<% _.each(discussions, function(discussion) { %>
 		<li class="nav-item media">
 			<a href="#course/forums/<%= course.courseid %>/<%=  encodeURIComponent(forumName) %>/discussions/<%= forumId %>/posts/<%= discussion.id %>">
+				
 					<h3><%= discussion.subject %></h3>
 					<span class="font6"><i><%= discussion.firstuserfullname %></i> - <%= new Date(discussion.timemodified * 1000).toLocaleString() %></span>
 			</a>

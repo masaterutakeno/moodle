@@ -42,14 +42,19 @@
                                 <a href="<% print(MM.fs.getRoot() + "/" + module.contents[0].localpath); %>" rel="external" id="link-<%= module.contentid %>">
                             <% }%>
                         <% } else if (module.modname == "url" && module.fileurl){ %>
-                                <a href="<%= module.fileurl %>" target="_blank" id="link-<%= module.contentid %>">
+                                <a href="<%= module.fileurl %>&token=<%= wtoken %>" target="_blank" id="link-<%= module.contentid %>">
                         <% } else if (module.modname != "label"){ %>
                              <% if (module.multiplefiles){ %>
                                 <a href="#course/contents/<%= courseId %>/section/<%= sectionId %>/folder/<%= module.contentid %>/sectionname/<%= encodeURIComponent(section.name) %>" id="link-<%= module.contentid %>">
                             <% } else if(module.webOnly){ %>
                                 <a href="<%= module.url %>" target="_blank" id="link-<%= module.contentid %>">
                             <% } else { %>
-                                <a href="#course/contents/<%= courseId %>/section/<%= sectionId %>/download/<%= module.contentid %>" id="link-<%= module.contentid %>">
+							
+							
+								<a href="<%= module.contents[0].fileurl %>&token=<%= wtoken %>" id="link-<%= module.contentid %>" target="_blank">
+                                <!--<a href="#course/contents/< %= courseId %>/section/< %= sectionId %>/download/< %= module.contentid %>" id="link-< %= module.contentid %>">-->
+								
+								
                             <% } %>
                         <% } %>
 
@@ -66,7 +71,7 @@
                             </div>
                         <% } else { %>
                             <a class="expand-label" href="#course/contents/<%= courseId %>/section/<%= sectionId %>/label/<%= module.contentid %>" id="link-<%= module.contentid %>">
-                            <h3><%= module.name %></h3>
+                            <h3><%= module.description %></h3>
                         <% } %>
                         </a>
                     </div>

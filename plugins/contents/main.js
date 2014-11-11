@@ -93,6 +93,7 @@ define(templates,function (sectionsTpl, contentsTpl, folderTpl, mimeTypes) {
             data.courseid = courseId;
 
             MM.moodleWSCall('core_course_get_contents', data, function(contents) {
+			
                 var course = MM.db.get("courses", MM.config.current_site.id + "-" + courseId);
                 var courseName = course.get("fullname");
 
@@ -260,6 +261,7 @@ define(templates,function (sectionsTpl, contentsTpl, folderTpl, mimeTypes) {
                 });
 
                 var tpl = {
+                    wtoken: MM.config.current_token,
                     sections: finalContents,
                     sectionId: sectionId,
                     courseId: courseId,

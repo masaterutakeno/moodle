@@ -113,36 +113,72 @@ define(templates,function (forums, discussions, posts, reply, langStrings) {
         },	
         
         addPosts: function(courseId, forumName, forumId, discussionId, subject) {
-			var pageTitle = MM.lang.s("forum","forums");
-			
-			var tpl = {
-				forumName: decodeURIComponent(forumName),
-				tcourseId: courseId,
-				tforumId: forumId,
-				tdiscussionId: discussionId,
-				tsubject: subject
-			}
-			
-			var html = MM.tpl.render(MM.plugins.forums.templates.reply.html, tpl);
-			MM.panels.html("right", html, {title: pageTitle});
-
-			$("#form-reply-update").on( "click", function() {
-				MM.showModalLoading(MM.lang.s("salvando","forums"));
+			var res = subject.split("edit_");
+			if (res.length > 1){
 				
-				var data = {
-					"dados[userid]" : MM.config.current_site.userid,
-					"dados[courseId]" : courseId,
-					"dados[forumName]" : forumName,
-					"dados[forumId]" : forumId,
-					"dados[discussionId]" : discussionId,
-					"dados[subject]" : subject,
-					"dados[resposta]" : $("#form-reply-resposta").val()
-				};
-				MM.moodleWSextCall('local_start_responder_forum', data, function(contents) {
-					MM.refresh();
-					MM.plugins.forums.viewPosts(courseId, forumName, forumId, discussionId);
-				});	 
-			});
+				var pageTitle = MM.lang.s("forum","forums");
+				
+				var tpl = {
+					forumName: decodeURIComponent(forumName),
+					tcourseId: courseId,
+					tforumId: forumId,
+					tdiscussionId: discussionId,
+					tsubject: subject
+				}
+				
+				var html = MM.tpl.render(MM.plugins.forums.templates.reply.html, tpl);
+				MM.panels.html("right", html, {title: pageTitle});
+
+				$("#form-reply-update").on( "click", function() {
+					MM.showModalLoading(MM.lang.s("salvando","forums"));
+					
+					var data = {
+						"dados[userid]" : MM.config.current_site.userid,
+						"dados[courseId]" : courseId,
+						"dados[forumName]" : forumName,
+						"dados[forumId]" : forumId,
+						"dados[discussionId]" : discussionId,
+						"dados[id]" : parseInt(res[1]),
+						"dados[resposta]" : $("#form-reply-resposta").val()
+					};
+					MM.moodleWSextCall('local_start_editar_forum', data, function(contents) {
+						MM.refresh();
+						MM.plugins.forums.viewPosts(courseId, forumName, forumId, discussionId);
+					});	 
+				});
+			}else{
+				
+				var pageTitle = MM.lang.s("forum","forums");
+				
+				var tpl = {
+					forumName: decodeURIComponent(forumName),
+					tcourseId: courseId,
+					tforumId: forumId,
+					tdiscussionId: discussionId,
+					tsubject: subject
+				}
+				
+				var html = MM.tpl.render(MM.plugins.forums.templates.reply.html, tpl);
+				MM.panels.html("right", html, {title: pageTitle});
+
+				$("#form-reply-update").on( "click", function() {
+					MM.showModalLoading(MM.lang.s("salvando","forums"));
+					
+					var data = {
+						"dados[userid]" : MM.config.current_site.userid,
+						"dados[courseId]" : courseId,
+						"dados[forumName]" : forumName,
+						"dados[forumId]" : forumId,
+						"dados[discussionId]" : discussionId,
+						"dados[subject]" : subject,
+						"dados[resposta]" : $("#form-reply-resposta").val()
+					};
+					MM.moodleWSextCall('local_start_responder_forum', data, function(contents) {
+						MM.refresh();
+						MM.plugins.forums.viewPosts(courseId, forumName, forumId, discussionId);
+					});	 
+				});
+			}
         },		
 		
         templates: {

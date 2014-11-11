@@ -23,8 +23,12 @@ subject = "";
 			subject = post.subject;
 		%>
 		<li class="nav-item media">
+			<% if (MM.config.current_site.userid == post.userid){%>
+				<a href="#course/forums/<%= tcourseId %>/<%=  encodeURIComponent(forumName) %>/discussions/<%= tforumId %>/posts/<%= tdiscussionId %>/reply/edit_<%= post.id %>"><img src="img/editar.png" border="0"> <h3><%= post.subject %></h3></a>
+			<% }else{ %>
+				<h3><%= post.subject %></h3>
+			<% } %>
 			
-			<h3><%= post.subject %></h3>
 			<p><%= post.message %></p>
 			<i><%= post.userfullname %></i> - <%= new Date(post.modified * 1000).toLocaleString() %>
 			
